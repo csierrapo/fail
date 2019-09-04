@@ -1,0 +1,9 @@
+<IfModule authz_core_module>
+    Require all denied
+    #application /*
+</IfModule>
+<IfModule !authz_core_module>
+    Deny from all
+    #application /modules/*/css|js/
+    #application /*
+</IfModule>
