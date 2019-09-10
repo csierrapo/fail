@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>jQuery Mobile: Theme Download</title>
+        <title>FAIL - SALES</title>
         <link rel="stylesheet" href="asets/themes/asdz.css" />
         <link rel="stylesheet" href="asets/themes/jquery.mobile.icons.min.css" />
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
@@ -23,23 +23,25 @@
         <header data-role="header"><h1>Captura de Ventas</h1></header>
         <div class="content" data-role="content">
             <div data-role="content">
-                <div class="row">
-                    <label>Para</label>
-                    <input class="form-group" type="text" name="" value="">
-                </div>
-                <div class="row">
-                    <label>Precio</label>
-                    <input class="form-group" type="number" name="" value="">
-                </div>
-                <div class="row">
-                    <label>Comprador</label>
-                    <input class="form-group" type="text" name="" value="" >
-                </div>
-                <div class="row">
-                    <label>Cantidad</label>
-                    <input class="form-group" type="text" name="" value="">
-                </div>
-                <button class="mdc-icon-button material-icons">save</button>
+                <form method="post" action="venta">
+                    <div class="row">
+                        <label for="">Para</label>
+                        <input class="form-group" type="text" name="cliente" id="txtPara">
+                    </div>
+                    <div class="row">
+                        <label>Precio</label>
+                        <input class="form-group" type="number" name="precio" id="txtPrecio">
+                    </div>
+                    <div class="row">
+                        <label>Comprador</label>
+                        <input class="form-group" type="text" name="comprador" id="txtComprador">
+                    </div>
+                    <div class="row">
+                        <label>Cantidad</label>
+                        <input class="form-group" type="number" name="cantidad" id="txtCantidad">
+                    </div>
+                    <button class="mdc-icon-button material-icons" type="submit">save</button>
+                </form>
             </div>
         </div>
         <footer data-role="footer">
