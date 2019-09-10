@@ -14,8 +14,6 @@ class VentaCtrl extends BaseController{
         $comprador = $this->request->getVar('comprador');
         $cantidad = $this->request->getVar('cantidad');
 
-
         //$this->venta->saveVenta();
-
     }
 }
