@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="asets/themes/jquery.mobile.icons.min.css" />
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="asets/js/index.js"></script>
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     </head>
@@ -30,7 +32,7 @@
         <header data-role="header"><h1>FAIL - SALES</h1></header>
         <div class="content" data-role="content">
             <div data-role="content">
-                <form method="post" action="venta">
+                <form>
                     <div class="row">
                         <label for="txtcliente">Cliente</label>
                         <input class="form-group" type="text" name="cliente" id="txtcliente">
@@ -40,8 +42,10 @@
                         <input class="form-group" type="number" name="precio" id="txtPrecio">
                     </div>
                     <div class="row">
-                        <label for="txtComprador">Comprador</label>
-                        <input class="form-group" type="text" name="comprador" id="txtComprador">
+                        <label for="txtComprador">Producto</label>
+                        <select id="cmbProducto">
+                            <option>Seleccione</option>
+                        </select>
                     </div>
                     <div class="row">
                         <label for="txtCantidad">Cantidad</label>
@@ -49,7 +53,7 @@
                     </div>
                     <fieldset class="ui-grid-a">
                         <div class="ui-block-a">
-                            <input type="submit" value="Guardar" data-theme="a">
+                            <input type="button" value="Guardar" data-theme="a" id="btnSave" onclick="saveVenta()">
                         </div>
                         <div class="ui-block-b">
                             <input type="reset" value="Cancelar" data-theme="b">
