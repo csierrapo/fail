@@ -29,20 +29,24 @@
         </center>
     </section>
     <section id="page1" data-role="page" >
-        <header data-role="header"><h1>FAIL - SALES</h1></header>
+        <header data-role="header">
+            <h1>FAIL - SALES</h1>
+        </header>
         <div class="content" data-role="content">
             <div data-role="content">
                 <form>
                     <div class="row">
                         <label for="txtcliente">Cliente</label>
-                        <input class="form-group" type="text" name="cliente" id="txtcliente">
+                        <select id="txtcliente">
+                            <option>Seleccione</option>
+                        </select>
                     </div>
                     <div class="row">
                         <label for="txtPrecio">Precio</label>
                         <input class="form-group" type="number" name="precio" id="txtPrecio">
                     </div>
                     <div class="row">
-                        <label for="txtComprador">Producto</label>
+                        <label for="cmbProducto">Producto</label>
                         <select id="cmbProducto">
                             <option>Seleccione</option>
                         </select>
@@ -71,21 +75,17 @@
     </section>
     <section id="page2" data-role="page">
         <header data-role="header">
-            <h1>FAIL - PROVIDERS</h1>
+            <h1>FAIL - CLIENTS</h1>
         </header>
         <div class="content" data-role="content">
-            <form action="" method="post">
-                <div class="row">
-                    <label for="txtNit">Nit</label>
-                    <input class="form-group" type="text" name="nit" id="txtNit">
-                </div>
+            <form>
                 <div class="row">
                     <label for="txtNombre">Nombre</label>
                     <input class="form-group" type="text" name="nombre" id="txtNombre">
                 </div>
                 <fieldset class="ui-grid-a">
                     <div class="ui-block-a">
-                        <input type="submit" value="Guardar" data-theme="a">
+                        <input type="button" value="Guardar" data-theme="a" onclick="saveCliente()">
                     </div>
                     <div class="ui-block-b">
                         <input type="reset" value="Cancelar" data-theme="b">

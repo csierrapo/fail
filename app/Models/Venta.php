@@ -26,4 +26,16 @@ class Venta extends Model{
         $result = $query->getRow();
         return $result;
     }
+
+    public function saveCliente($data){
+        $db = \Config\Database::connect();
+        $db->table('comprador')->insert($data);
+    }
+
+    public function getClientes(){
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT * FROM comprador');
+        $results = $query->getResult();
+        return $results;
+    }
 }

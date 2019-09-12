@@ -2,6 +2,8 @@
 namespace App\Controllers;
 use App\Models\Venta;
 use CodeIgniter\Controller;
+use mysql_xdevapi\Exception;
+
 class VentaCtrl extends Controller{
 
     public function saveVenta(){
@@ -20,15 +22,31 @@ class VentaCtrl extends Controller{
             Venta::saveVentaProducto($venta_producto);
 
             $result = "true";
-
         }catch (\Exception $e){
-
+            $result = "false";
         }
         return $result;
     }
 
     public function getProducto(){
         $data = Venta::getProductos();
+        return json_encode($data);
+    }
+
+    public function saveCliente(){
+        $result = "false";
+        try{
+            $nombre = $this->request->getVar('nombre');
+            $data = array("nombre" => $nombre);
+            Venta::saveCliente($data);
+            $result = "true";
+        }catch (\Exception $e){
+            $result = "false";
+        }
+        return $result;
+    }
+    public function getClientes(){
+        $data = Venta::getClientes();
         return json_encode($data);
     }
 }

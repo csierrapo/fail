@@ -1,5 +1,6 @@
 $(document).ready(function() {
    getProductos();
+   getClientes();
 });
 
 function getProductos() {
@@ -13,24 +14,58 @@ function getProductos() {
         }
     });
 }
+
+function getClientes() {
+    clrearCmb("#txtcliente");
+    $.ajax({
+        type: "POST",
+        url: "getClientes",
+        dataType: 'json'
+    }).done(function( data ) {
+        for (var i in data){
+            $('#txtcliente').append(new Option(data[i].nombre, data[i].id, false, false));
+        }
+    });
+}
+
 function saveVenta() {
     let data = {
         cliente: $("#txtcliente").val(),
         precio: $("#txtPrecio").val(),
         producto: $("#cmbProducto").val(),
         cantidad: $("#txtCantidad").val(),
-
     };
     $.ajax({
         type: "POST",
         url: "saveVenta",
-        dataType: 'json',
-        data: { data: data}
+        data: {data: data}
     }).done(function(data) {
-        if (data = 'true'){
-            alert("Venta guardada correctamente.")
+        if (data){
+            alert("Venta guardada correctamente.");
         }else{
-            alert("Error al guardar la venta.")
+            alert("Error al guardar la venta.");
         }
     });
+}
+
+function saveCliente() {
+    let nombre = $("#txtNombre").val();
+    $.ajax({
+        type: "POST",
+        url: "saveCliente",
+        dataType: 'json',
+        data: {nombre: nombre}
+    }).done(function(data) {
+        if (data){
+            alert("Cliente registrado correctamente.");
+            getClientes();
+        }else{
+            alert("Error al guardar el cliente.");
+        }
+    });
+}
+
+function clrearCmb(id) {
+    $(id).html("");
+    $(id).append(new Option('Seleccione', null, false, false));
 }

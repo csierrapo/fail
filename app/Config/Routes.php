@@ -75,6 +75,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->post('/saveVenta', 'VentaCtrl::saveVenta');
 $routes->post('/getProducto', 'VentaCtrl::getProducto');
+$routes->post('/getClientes', 'VentaCtrl::getClientes');
+$routes->post('/saveCliente', 'VentaCtrl::saveCliente');
 
 /**
  * --------------------------------------------------------------------
